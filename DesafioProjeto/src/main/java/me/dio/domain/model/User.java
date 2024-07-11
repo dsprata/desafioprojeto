@@ -25,6 +25,9 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<News> news;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Transaction> transactions;
+
     public Long getId() {
         return id;
     }
@@ -72,5 +75,13 @@ public class User {
     public void setNews(List<News> news) {
         this.news = news;
     }
+
+    public List<Transaction> getTransactions() {
+		return transactions;
+	}
+
+	public void setTransactions(List<Transaction> transactions) {
+		this.transactions = transactions;
+	}
 
 }
